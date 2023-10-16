@@ -1,0 +1,35 @@
+*, *:before, *:after { 
+    box-sizing: border-box; 
+  }
+  
+  html, body { 
+    /*
+      height: 100%; 
+      - this can cause bugs in js with:
+      - document.body.offsetHeight
+      - document.documentElement.clientHeight
+      - document.documentElement.offsetHeight
+    */
+    
+    min-height: 100vh;
+    /*
+      Better but, even min-height:100vh causes wrong 
+      document.documentElement.clientHeight 😥
+    */
+  }
+  
+  body {
+    line-height: 1.5;
+    font-family: sans-serif;
+    > footer {
+      position: absolute;
+      top: 100vh;
+    }
+  }
+  
+  main { padding: 0 20px;}
+  
+  header, footer {
+    padding: 20px;
+    background-color: #eee;
+  }

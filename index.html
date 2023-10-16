@@ -1,0 +1,1629 @@
+<html>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+<script>
+  window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      title: {
+        text: "Сіздің деңгейініз"
+      },
+      data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0.00\"%\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+          { y: 85, label: "Дұрыс" },
+          { x: 15, label: "Қате" }
+        ]
+      }]
+    });
+    chart.render();
+
+  }
+</script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body style="height:100%; width:100%">
+
+  <header>
+    <div class="header">
+      <button id="myBtn" class="b">Тест мақсаты</button>
+
+      <div id="myModal" class="modal">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Қазақ тілінде ең жиі қолданылатын сөздерден бастап ең сирек қолданылатын сөздерге дейінгі аралықтағы жеке
+            сөздерден тұрады. Сонымен қатар, тестте зерттелетін тілде жоқ, ойдан шығарылған сөздер кездеседі. Бұл
+            қатысушыларды ойланбанстан барлық сөздерді таңдаудан тоқтату мақсатында жасалған. Қатысушылар тестте ойдан
+            шығарылған сөздердің бар екендігін біледі, сондықтан оны таңдамас бұрын ойланады.
+
+
+            <br>
+            <hr>
+            QazUp тестінде сөздер қазақ тілінде ең жиі қолданылатын 10000, 15000, 20000, 25000 және 30000 сөз ретінде
+            беріледі. Белгілі бір тілде сөз неғұрлым жиі қолданылса, соғұрлым адамның оны білу мүмкіндігі артады.
+            Сондықтан ең жиі қолданылатын 10000 сөз - бұл жеңіл сөздер, ал ең жиі қолданылатын 30000 сөз - бұл
+            салыстырмалы түрде күрделі, күнделікті өмірде сирек кездесетін сөздер деген жорамал жасалынады.
+            <br>
+          </p>
+        </div>
+
+      </div>
+
+      <img height="70px" width="80px" src="logo.png">
+
+      <button id="myBtn1" class="b">Тест туралы </button>
+
+      <div id="myModal1" class="modal">
+
+        <div class="modal-content">
+          <span class="close1">&times;</span>
+          <p>
+            Мира мен Милтонның (2003) X-Lex тестіне ұқсас,QazUp тестін өту барысында қатысушылар өздері білетін және
+            күнделікті өмірде қолдана алатын сөздерді таңдады. Қатысушының сөздік қорын анықтау үшін төмендегідей
+            формула қолданылды: Сөздік қор = [Таңдалған шынайы сөздер саны*375] - [Таңдалған ойдан шығарылған сөздер
+            саны*1500]
+            Қатысушылар таңдаған шынайы сөздер мен ойдан шығарылған сөздердің әрқайсысының тест нәтижесіне әсері бірдей
+            болу үшін екеуінің де жалпы мәні 30000-ға тең болуы қажет. Біздің тестте шынайы сөздер мен ойдан шығарылған
+            сөздер саны әртүрлі, сондықтан олардың әрқайсысы үшін бөлек көбейткішті есептеп шығару керек болды. Шынайы
+            сөздер үшін бұл көбейткіш - 375, себебі 30000 / 80 = 375 (мұнда 80 - тесттегі шынайы сөздердің жалпы саны).
+            Ойдан шығарылған сөздер үшін бұл көбейткіш - 1500, себебі 30000 / 20 = 1500 (мұнда 20 - тесттегі ойдан
+            шығарылған сөздердің жалпы саны). Сондай-ақ формулада тестті өту кезінде жіберілуі мүмкін қателіктер де
+            ескерілген. Осылайша, егер қатысушы тесттегі 100 сөздің барлығын қарамастан таңдаса, оның сөздік қоры нөлге
+            тең болып шығады, себебі [80*375] - [20*1500] = 0. Бұндай нәтижелер зерттеуде қолданылмайды, себебі олар
+            зерттеу нәтижелерінің дәлдігін төмендетеді.
+          </p>
+        </div>
+
+      </div>
+  </header>
+  <main>
+    <div class="b">
+      <p class="b">Төмендегі кестеде берілген сөздерге қараңыз. Бұл сөздердің кейбіреуі қазақ тіліндегі шынайы сөздер,
+        ал кейбіреуі шынайы сөздерге ұқсайтындай етіп ойдан шығарылған.
+        <br>
+        Өзіңіз білетін немесе күнделікті өмірде қолданыла алатын сөздерді қанатша белгісімен белгілеңіз.
+      </p>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>.<br>.</th>
+            <th>.<br>.</th>
+            <th>.<br>.</th>
+            <th>.<br>.</th>
+            <th>.<br>.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck1" onclick="myFunction1()">
+                <label for="scales">жыл</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck2" onclick="myFunction2()">
+                <label for="scales">азғантай</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck3" onclick="myFunction3()">
+                <label for="scales">тұтандыр</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck4" onclick="myFunction4()">
+                <label for="scales">шам-шырақ</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck5" onclick="myFunction5()">
+                <label for="scales">өмешіл</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck6" onclick="myFunction6()">
+                <label for="scales">пайдалан</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck7" onclick="myFunction7()">
+                <label for="scales">менмен</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck8" onclick="myFunction8()">
+                <label for="scales">бесаспап</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck9" onclick="myFunction9()">
+                <label for="scales">алшайт</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck10" onclick="myFunction10()">
+                <label for="scales">диқаншылдық</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck11" onclick="myFunction11()">
+                <label for="scales">қолбақ</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck12" onclick="myFunction12()">
+                <label for="scales">бұратана</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck13" onclick="myFunction13()">
+                <label for="scales">үйткені</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck14" onclick="myFunction14()">
+                <label for="scales">ғұмырнамалық</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck15" onclick="myFunction15()">
+                <label for="scales">жылтырлы</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck16" onclick="myFunction16()">
+                <label for="scales">керісінше</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck17" onclick="myFunction17()">
+                <label for="scales">шабуылшы</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck18" onclick="myFunction18()">
+                <label for="scales">кіржуғыш</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck19" onclick="myFunction19()">
+                <label for="scales">кеуір</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck20" onclick="myFunction20()">
+                <label for="scales">икемсіздік</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck21" onclick="myFunction21()">
+                <label for="scales">икемсіздік</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck22" onclick="myFunction22()">
+                <label for="scales">өмешіл</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck23" onclick="myFunction23()">
+                <label for="scales">сүртін</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck24" onclick="myFunction24()">
+                <label for="scales">маңайлат</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck25" onclick="myFunction25()">
+                <label for="scales">бір рез</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck26" onclick="myFunction26()">
+                <label for="scales">босаға</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck27" onclick="myFunction27()">
+                <label for="scales">қайтара</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck28" onclick="myFunction28()">
+                <label for="scales">туылған күн</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck29" onclick="myFunction29()">
+                <label for="scales">параллельді</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck30" onclick="myFunction30()">
+                <label for="scales">қолайластыр</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck31" onclick="myFunction31()">
+                <label for="scales">әлдеқашан</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck32" onclick="myFunction32()">
+                <label for="scales">терімшілік</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck33" onclick="myFunction33()">
+                <label for="scales">мінез-қылық</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck34" onclick="myFunction34()">
+                <label for="scales">тоқыл</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck35" onclick="myFunction35()">
+                <label for="scales">киеу</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck36" onclick="myFunction36()">
+                <label for="scales">айландыру</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck37" onclick="myFunction37()">
+                <label for="scales">саясатшы</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck38" onclick="myFunction38()">
+                <label for="scales">сылтаурат</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck39" onclick="myFunction39()">
+                <label for="scales">сарақ</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck40" onclick="myFunction40()">
+                <label for="scales">ойқазық</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck41" onclick="myFunction41()">
+                <label for="scales">қисық</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck42" onclick="myFunction42()">
+                <label for="scales">ұжымдас</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck43" onclick="myFunction43()">
+                <label for="scales">бұрат</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck44" onclick="myFunction44()">
+                <label for="scales">аялдат</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck45" onclick="myFunction45()">
+                <label for="scales">бетбеу</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck46" onclick="myFunction46()">
+                <label for="scales">гүлден</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck47" onclick="myFunction47()">
+                <label for="scales">мышық</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck48" onclick="myFunction48()">
+                <label for="scales">қашығырақ</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck49" onclick="myFunction49()">
+                <label for="scales">елпеңде</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck50" onclick="myFunction50()">
+                <label for="scales">сүздір</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck51" onclick="myFunction51()">
+                <label for="scales">беймәлім</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck52" onclick="myFunction52()">
+                <label for="scales">тұрғысыз</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck53" onclick="myFunction53()">
+                <label for="scales">пысына</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck54" onclick="myFunction54()">
+                <label for="scales">мытқыл</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck55" onclick="myFunction55()">
+                <label for="scales">тұтқы</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck56" onclick="myFunction56()">
+                <label for="scales">көпұлтты</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck57" onclick="myFunction57()">
+                <label for="scales">іркіліс</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck58" onclick="myFunction58()">
+                <label for="scales">ұятты</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck59" onclick="myFunction59()">
+                <label for="scales">комбайншы</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck60" onclick="myFunction60()">
+                <label for="scales">ісхана</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck61" onclick="myFunction61()">
+                <label for="scales">ықшам</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck62" onclick="myFunction62()">
+                <label for="scales">қарама-қайшылық</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck63" onclick="myFunction63()">
+                <label for="scales">баудай</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck64" onclick="myFunction64()">
+                <label for="scales">микротолқын</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck65" onclick="myFunction65()">
+                <label for="scales">ырғыздық</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck66" onclick="myFunction66()">
+                <label for="scales">жұмсарт</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck67" onclick="myFunction67()">
+                <label for="scales">қарусыз</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck68" onclick="myFunction68()">
+                <label for="scales">қайыстыр</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck69" onclick="myFunction69()">
+                <label for="scales">майжалдақ</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck70" onclick="myFunction70()">
+                <label for="scales">автошанақ</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck71" onclick="myFunction71()">
+                <label for="scales">құтқарушы</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck72" onclick="myFunction72()">
+                <label for="scales">дастарқандас</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck73" onclick="myFunction73()">
+                <label for="scales">пәлеқор</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck74" onclick="myFunction74()">
+                <label for="scales">талғамсыз</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck75" onclick="myFunction75()">
+                <label for="scales">аңыста</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck76" onclick="myFunction76()">
+                <label for="scales">күлкінішті</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck77" onclick="myFunction77()">
+                <label for="scales">сылдырла</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck78" onclick="myFunction78()">
+                <label for="scales">көгеніс</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck79" onclick="myFunction79()">
+                <label for="scales">тоңғақ</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck80" onclick="myFunction80()">
+                <label for="scales">тиым</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck81" onclick="myFunction81()">
+                <label for="scales">теңдессіз</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck82" onclick="myFunction82()">
+                <label for="scales">балдар</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck83" onclick="myFunction83()">
+                <label for="scales">асқындыр</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck84" onclick="myFunction84()">
+                <label for="scales">шоқырақта</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck85" onclick="myFunction85()">
+                <label for="scales">шұбалшын</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck86" onclick="myFunction86()">
+                <label for="scales">толшыр</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck87" onclick="myFunction87()">
+                <label for="scales">алыпсатар</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck88" onclick="myFunction88()">
+                <label for="scales">имансыздық</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck89" onclick="myFunction89()">
+                <label for="scales">жанулас</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck90" onclick="myFunction90()">
+                <label for="scales">биікше</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck91" onclick="myFunction91()">
+                <label for="scales">жолықтыр</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck92" onclick="myFunction92()">
+                <label for="scales">сүгірет</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck93" onclick="myFunction93()">
+                <label for="scales">көпбағытты</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck94" onclick="myFunction94()">
+                <label for="scales">бағалау</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck95" onclick="myFunction95()">
+                <label for="scales">деңгел</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck96" onclick="myFunction96()">
+                <label for="scales">жазым</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck97" onclick="myFunction97()">
+                <label for="scales">күйзелт</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="wrong" id="myCheck98" onclick="myFunction98()">
+                <label for="scales">аспазшы</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck99" onclick="myFunction99()">
+                <label for="scales">бейжайлық</label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="checkbox" name="scales" id="myCheck100" onclick="myFunction100()">
+                <label for="scales">зағип</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="button" class="b" value="Результат" id="submit" onclick="myFunction102()">
+
+
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    </div>
+  </main>
+
+  <div id="myModal2" class="modal">
+
+    <div class="modal-content">
+      <span class="close2">&times;</span>
+      <div class="result-wrapper">
+        <h3>Result:</h3>
+        <div id="result"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <footer>
+    Контакты
+    - <a id="add-content" href="" role="button">WhatsApp</a>
+    - <a id="remove-content" href="" role="button">Номер</a>
+  </footer>
+
+
+
+
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  <script>
+    window.right = 0
+    window.wrong = 0
+    window.result = 0
+
+
+    function myFunction86() {
+      var checkBox = document.getElementById("myCheck86");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction92() {
+      var checkBox = document.getElementById("myCheck92");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction1() {
+      var checkBox = document.getElementById("myCheck1");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction2() {
+      var checkBox = document.getElementById("myCheck2");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction3() {
+      var checkBox = document.getElementById("myCheck3");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction4() {
+      var checkBox = document.getElementById("myCheck4");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction5() {
+      var checkBox = document.getElementById("myCheck5");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction6() {
+      var checkBox = document.getElementById("myCheck6");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction7() {
+      var checkBox = document.getElementById("myCheck7");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction8() {
+      var checkBox = document.getElementById("myCheck8");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction9() {
+      var checkBox = document.getElementById("myCheck9");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction10() {
+      var checkBox = document.getElementById("myCheck10");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction11() {
+      var checkBox = document.getElementById("myCheck11");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction12() {
+      var checkBox = document.getElementById("myCheck12");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction13() {
+      var checkBox = document.getElementById("myCheck13");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction14() {
+      var checkBox = document.getElementById("myCheck14");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction15() {
+      var checkBox = document.getElementById("myCheck15");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction16() {
+      var checkBox = document.getElementById("myCheck16");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction17() {
+      var checkBox = document.getElementById("myCheck17");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction18() {
+      var checkBox = document.getElementById("myCheck18");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction19() {
+      var checkBox = document.getElementById("myCheck19");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction20() {
+      var checkBox = document.getElementById("myCheck20");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction21() {
+      var checkBox = document.getElementById("myCheck21");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction22() {
+      var checkBox = document.getElementById("myCheck22");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction23() {
+      var checkBox = document.getElementById("myCheck23");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction24() {
+      var checkBox = document.getElementById("myCheck24");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction25() {
+      var checkBox = document.getElementById("myCheck25");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction26() {
+      var checkBox = document.getElementById("myCheck26");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction27() {
+      var checkBox = document.getElementById("myCheck27");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction28() {
+      var checkBox = document.getElementById("myCheck28");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction29() {
+      var checkBox = document.getElementById("myCheck29");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction30() {
+      var checkBox = document.getElementById("myCheck30");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction31() {
+      var checkBox = document.getElementById("myCheck31");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction32() {
+      var checkBox = document.getElementById("myCheck32");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction33() {
+      var checkBox = document.getElementById("myCheck33");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction34() {
+      var checkBox = document.getElementById("myCheck34");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction35() {
+      var checkBox = document.getElementById("myCheck35");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction36() {
+      var checkBox = document.getElementById("myCheck36");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction37() {
+      var checkBox = document.getElementById("myCheck37");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction38() {
+      var checkBox = document.getElementById("myCheck38");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction39() {
+      var checkBox = document.getElementById("myCheck39");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction40() {
+      var checkBox = document.getElementById("myCheck40");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction41() {
+      var checkBox = document.getElementById("myCheck41");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction42() {
+      var checkBox = document.getElementById("myCheck42");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction43() {
+      var checkBox = document.getElementById("myCheck43");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction44() {
+      var checkBox = document.getElementById("myCheck44");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction45() {
+      var checkBox = document.getElementById("myCheck45");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction46() {
+      var checkBox = document.getElementById("myCheck46");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction47() {
+      var checkBox = document.getElementById("myCheck47");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction48() {
+      var checkBox = document.getElementById("myCheck48");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction49() {
+      var checkBox = document.getElementById("myCheck49");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction50() {
+      var checkBox = document.getElementById("myCheck50");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction51() {
+      var checkBox = document.getElementById("myCheck51");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction52() {
+      var checkBox = document.getElementById("myCheck52");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction53() {
+      var checkBox = document.getElementById("myCheck53");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+
+    function myFunction54() {
+      var checkBox = document.getElementById("myCheck54");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction55() {
+      var checkBox = document.getElementById("myCheck55");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction56() {
+      var checkBox = document.getElementById("myCheck56");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction57() {
+      var checkBox = document.getElementById("myCheck57");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction58() {
+      var checkBox = document.getElementById("myCheck58");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction59() {
+      var checkBox = document.getElementById("myCheck59");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction60() {
+      var checkBox = document.getElementById("myCheck60");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction61() {
+      var checkBox = document.getElementById("myCheck61");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction62() {
+      var checkBox = document.getElementById("myCheck62");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction63() {
+      var checkBox = document.getElementById("myCheck63");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction64() {
+      var checkBox = document.getElementById("myCheck64");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction65() {
+      var checkBox = document.getElementById("myCheck65");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction66() {
+      var checkBox = document.getElementById("myCheck66");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction67() {
+      var checkBox = document.getElementById("myCheck67");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction68() {
+      var checkBox = document.getElementById("myCheck68");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+
+    function myFunction69() {
+      var checkBox = document.getElementById("myCheck69");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction70() {
+      var checkBox = document.getElementById("myCheck70");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction71() {
+      var checkBox = document.getElementById("myCheck71");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction72() {
+      var checkBox = document.getElementById("myCheck72");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction73() {
+      var checkBox = document.getElementById("myCheck73");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction74() {
+      var checkBox = document.getElementById("myCheck74");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction75() {
+      var checkBox = document.getElementById("myCheck75");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction76() {
+      var checkBox = document.getElementById("myCheck76");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction77() {
+      var checkBox = document.getElementById("myCheck77");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+
+    function myFunction78() {
+      var checkBox = document.getElementById("myCheck78");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction79() {
+      var checkBox = document.getElementById("myCheck79");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction80() {
+      var checkBox = document.getElementById("myCheck80");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction81() {
+      var checkBox = document.getElementById("myCheck81");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction82() {
+      var checkBox = document.getElementById("myCheck82");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction83() {
+      var checkBox = document.getElementById("myCheck83");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction84() {
+      var checkBox = document.getElementById("myCheck84");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction85() {
+      var checkBox = document.getElementById("myCheck85");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+
+    function myFunction87() {
+      var checkBox = document.getElementById("myCheck87");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction88() {
+      var checkBox = document.getElementById("myCheck88");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction89() {
+      var checkBox = document.getElementById("myCheck89");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction90() {
+      var checkBox = document.getElementById("myCheck1");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction91() {
+      var checkBox = document.getElementById("myCheck1");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction93() {
+      var checkBox = document.getElementById("myCheck93");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction94() {
+      var checkBox = document.getElementById("myCheck94");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction95() {
+      var checkBox = document.getElementById("myCheck95");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction96() {
+      var checkBox = document.getElementById("myCheck96");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction97() {
+      var checkBox = document.getElementById("myCheck97");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+
+    function myFunction98() {
+      var checkBox = document.getElementById("myCheck98");
+
+      if (checkBox.checked == true) {
+        window.wrong = window.wrong + 1;
+      }
+    }
+    function myFunction99() {
+      var checkBox = document.getElementById("myCheck99");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+    function myFunction100() {
+      var checkBox = document.getElementById("myCheck100");
+
+      if (checkBox.checked == true) {
+        window.right = window.right + 1;
+      }
+    }
+
+
+    function myFunction102() {
+      window.result = (window.right) * 375 - (window.wrong) * 1500
+      alert("Сіздің нәтижеңіз:" + window.result)
+
+
+    }
+
+
+
+
+
+    var modal = document.getElementById("myModal");
+
+
+    var btn = document.getElementById("myBtn");
+
+
+    var span = document.getElementsByClassName("close")[0];
+
+
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+
+    var modal1 = document.getElementById("myModal1");
+
+
+    var btn1 = document.getElementById("myBtn1");
+
+
+    var span1 = document.getElementsByClassName("close1")[0];
+
+
+    btn1.onclick = function () {
+      modal1.style.display = "block";
+    }
+
+
+
+    span1.onclick = function () {
+      modal1.style.display = "none";
+    }
+
+
+    window.onclick = function (event) {
+      if (event.target == modal1) {
+        modal1.style.display = "none";
+      }
+    }
+    //    var modal2 = document.getElementById("myModal2");
+    //
+    //
+    //    var btn2 = document.getElementById("submit");
+    //
+    //
+    //    var span2 = document.getElementsByClassName("close2")[0];
+    //
+    //
+    //    btn2.onclick = function() {
+    //      modal2.style.display = "block";
+    //    }
+    //
+    //
+    //    span2.onclick = function() {
+    //      modal2.style.display = "none";
+    //    }
+    //
+    //
+    //    window.onclick = function(event) {
+    //      if (event.target == modal2) {
+    //        modal2.style.display = "none";
+    //      }
+    //    }
+
+  </script>
+
+
+</body>
+
+</html>
