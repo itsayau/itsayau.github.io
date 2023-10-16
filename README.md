@@ -1,1 +1,1 @@
-# itsayau.github.io
+# Platform for testing the level of the Kazakh language
