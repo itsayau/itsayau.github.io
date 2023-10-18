@@ -1,1629 +1,1318 @@
 <html>
-<style>
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-
-
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-</style>
-<script>
-  window.onload = function () {
-
-    var chart = new CanvasJS.Chart("chartContainer", {
-      animationEnabled: true,
-      title: {
-        text: "Сіздің деңгейініз"
-      },
-      data: [{
-        type: "pie",
-        startAngle: 240,
-        yValueFormatString: "##0.00\"%\"",
-        indexLabel: "{label} {y}",
-        dataPoints: [
-          { y: 85, label: "Дұрыс" },
-          { x: 15, label: "Қате" }
-        ]
-      }]
-    });
-    chart.render();
-
-  }
-</script>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+    <title>QazUp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
-<body style="height:100%; width:100%">
+<body>
+    <div class="nav">
+        <a id="testGoal" class="goalStyle">Тест мақсаты</a>
 
-  <header>
-    <div class="header">
-      <button id="myBtn" class="b">Тест мақсаты</button>
+        <div id="testGoalDiv" class="goalDiv">
 
-      <div id="myModal" class="modal">
+            <div class="goalDiv-content">
+                <span class="close">&times;</span>
+                <p>Қазақ тілінде ең жиі қолданылатын сөздерден бастап ең сирек қолданылатын сөздерге дейінгі аралықтағы
+                    жеке
+                    сөздерден тұрады. Сонымен қатар, тестте зерттелетін тілде жоқ, ойдан шығарылған сөздер кездеседі.
+                    Бұл
+                    қатысушыларды ойланбанстан барлық сөздерді таңдаудан тоқтату мақсатында жасалған. Қатысушылар тестте
+                    ойдан
+                    шығарылған сөздердің бар екендігін біледі, сондықтан оны таңдамас бұрын ойланады.
 
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Қазақ тілінде ең жиі қолданылатын сөздерден бастап ең сирек қолданылатын сөздерге дейінгі аралықтағы жеке
-            сөздерден тұрады. Сонымен қатар, тестте зерттелетін тілде жоқ, ойдан шығарылған сөздер кездеседі. Бұл
-            қатысушыларды ойланбанстан барлық сөздерді таңдаудан тоқтату мақсатында жасалған. Қатысушылар тестте ойдан
-            шығарылған сөздердің бар екендігін біледі, сондықтан оны таңдамас бұрын ойланады.
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+                    QazUp тестінде сөздер қазақ тілінде ең жиі қолданылатын 10000, 15000, 20000, 25000 және 30000 сөз
+                    ретінде
+                    беріледі. Белгілі бір тілде сөз неғұрлым жиі қолданылса, соғұрлым адамның оны білу мүмкіндігі
+                    артады.
+                    Сондықтан ең жиі қолданылатын 10000 сөз - бұл жеңіл сөздер, ал ең жиі қолданылатын 30000 сөз - бұл
+                    салыстырмалы түрде күрделі, күнделікті өмірде сирек кездесетін сөздер деген жорамал жасалынады.
+                    <br>
+                </p>
+            </div>
 
-
-            <br>
-            <hr>
-            QazUp тестінде сөздер қазақ тілінде ең жиі қолданылатын 10000, 15000, 20000, 25000 және 30000 сөз ретінде
-            беріледі. Белгілі бір тілде сөз неғұрлым жиі қолданылса, соғұрлым адамның оны білу мүмкіндігі артады.
-            Сондықтан ең жиі қолданылатын 10000 сөз - бұл жеңіл сөздер, ал ең жиі қолданылатын 30000 сөз - бұл
-            салыстырмалы түрде күрделі, күнделікті өмірде сирек кездесетін сөздер деген жорамал жасалынады.
-            <br>
-          </p>
         </div>
 
-      </div>
+        <p class="logo">QAZUP</p>
+        <a id="aboutGoal" class="aboutStyle" href="#about">Тест туралы</a>
 
-      <img height="70px" width="80px" src="logo.png">
+        <div id="aboutGoalDiv" class="goalDiv">
 
-      <button id="myBtn1" class="b">Тест туралы </button>
+            <div class="goalDiv-content">
+                <span class="close1">&times;</span>
+                <p>
+                    Мира мен Милтонның (2003) X-Lex тестіне ұқсас,QazUp тестін өту барысында қатысушылар өздері білетін
+                    және
+                    күнделікті өмірде қолдана алатын сөздерді таңдады. Қатысушының сөздік қорын анықтау үшін
+                    төмендегідей
+                    формула қолданылды: Сөздік қор = [Таңдалған шынайы сөздер саны*375] - [Таңдалған ойдан шығарылған
+                    сөздер
+                    саны*1500]
+                    Қатысушылар таңдаған шынайы сөздер мен ойдан шығарылған сөздердің әрқайсысының тест нәтижесіне әсері
+                    бірдей
+                    болу үшін екеуінің де жалпы мәні 30000-ға тең болуы қажет. Біздің тестте шынайы сөздер мен ойдан
+                    шығарылған
+                    сөздер саны әртүрлі, сондықтан олардың әрқайсысы үшін бөлек көбейткішті есептеп шығару керек болды.
+                    Шынайы
+                    сөздер үшін бұл көбейткіш - 375, себебі 30000 / 80 = 375 (мұнда 80 - тесттегі шынайы сөздердің жалпы
+                    саны).
+                    Ойдан шығарылған сөздер үшін бұл көбейткіш - 1500, себебі 30000 / 20 = 1500 (мұнда 20 - тесттегі
+                    ойдан
+                    шығарылған сөздердің жалпы саны). Сондай-ақ формулада тестті өту кезінде жіберілуі мүмкін қателіктер
+                    де
+                    ескерілген. Осылайша, егер қатысушы тесттегі 100 сөздің барлығын қарамастан таңдаса, оның сөздік
+                    қоры нөлге
+                    тең болып шығады, себебі [80*375] - [20*1500] = 0. Бұндай нәтижелер зерттеуде қолданылмайды, себебі
+                    олар
+                    зерттеу нәтижелерінің дәлдігін төмендетеді.
+                </p>
+            </div>
 
-      <div id="myModal1" class="modal">
-
-        <div class="modal-content">
-          <span class="close1">&times;</span>
-          <p>
-            Мира мен Милтонның (2003) X-Lex тестіне ұқсас,QazUp тестін өту барысында қатысушылар өздері білетін және
-            күнделікті өмірде қолдана алатын сөздерді таңдады. Қатысушының сөздік қорын анықтау үшін төмендегідей
-            формула қолданылды: Сөздік қор = [Таңдалған шынайы сөздер саны*375] - [Таңдалған ойдан шығарылған сөздер
-            саны*1500]
-            Қатысушылар таңдаған шынайы сөздер мен ойдан шығарылған сөздердің әрқайсысының тест нәтижесіне әсері бірдей
-            болу үшін екеуінің де жалпы мәні 30000-ға тең болуы қажет. Біздің тестте шынайы сөздер мен ойдан шығарылған
-            сөздер саны әртүрлі, сондықтан олардың әрқайсысы үшін бөлек көбейткішті есептеп шығару керек болды. Шынайы
-            сөздер үшін бұл көбейткіш - 375, себебі 30000 / 80 = 375 (мұнда 80 - тесттегі шынайы сөздердің жалпы саны).
-            Ойдан шығарылған сөздер үшін бұл көбейткіш - 1500, себебі 30000 / 20 = 1500 (мұнда 20 - тесттегі ойдан
-            шығарылған сөздердің жалпы саны). Сондай-ақ формулада тестті өту кезінде жіберілуі мүмкін қателіктер де
-            ескерілген. Осылайша, егер қатысушы тесттегі 100 сөздің барлығын қарамастан таңдаса, оның сөздік қоры нөлге
-            тең болып шығады, себебі [80*375] - [20*1500] = 0. Бұндай нәтижелер зерттеуде қолданылмайды, себебі олар
-            зерттеу нәтижелерінің дәлдігін төмендетеді.
-          </p>
         </div>
-
-      </div>
-  </header>
-  <main>
-    <div class="b">
-      <p class="b">Төмендегі кестеде берілген сөздерге қараңыз. Бұл сөздердің кейбіреуі қазақ тіліндегі шынайы сөздер,
-        ал кейбіреуі шынайы сөздерге ұқсайтындай етіп ойдан шығарылған.
-        <br>
-        Өзіңіз білетін немесе күнделікті өмірде қолданыла алатын сөздерді қанатша белгісімен белгілеңіз.
-      </p>
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th>.<br>.</th>
-            <th>.<br>.</th>
-            <th>.<br>.</th>
-            <th>.<br>.</th>
-            <th>.<br>.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck1" onclick="myFunction1()">
-                <label for="scales">жыл</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck2" onclick="myFunction2()">
-                <label for="scales">азғантай</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck3" onclick="myFunction3()">
-                <label for="scales">тұтандыр</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck4" onclick="myFunction4()">
-                <label for="scales">шам-шырақ</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck5" onclick="myFunction5()">
-                <label for="scales">өмешіл</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck6" onclick="myFunction6()">
-                <label for="scales">пайдалан</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck7" onclick="myFunction7()">
-                <label for="scales">менмен</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck8" onclick="myFunction8()">
-                <label for="scales">бесаспап</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck9" onclick="myFunction9()">
-                <label for="scales">алшайт</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck10" onclick="myFunction10()">
-                <label for="scales">диқаншылдық</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck11" onclick="myFunction11()">
-                <label for="scales">қолбақ</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck12" onclick="myFunction12()">
-                <label for="scales">бұратана</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck13" onclick="myFunction13()">
-                <label for="scales">үйткені</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck14" onclick="myFunction14()">
-                <label for="scales">ғұмырнамалық</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck15" onclick="myFunction15()">
-                <label for="scales">жылтырлы</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck16" onclick="myFunction16()">
-                <label for="scales">керісінше</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck17" onclick="myFunction17()">
-                <label for="scales">шабуылшы</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck18" onclick="myFunction18()">
-                <label for="scales">кіржуғыш</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck19" onclick="myFunction19()">
-                <label for="scales">кеуір</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck20" onclick="myFunction20()">
-                <label for="scales">икемсіздік</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck21" onclick="myFunction21()">
-                <label for="scales">икемсіздік</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck22" onclick="myFunction22()">
-                <label for="scales">өмешіл</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck23" onclick="myFunction23()">
-                <label for="scales">сүртін</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck24" onclick="myFunction24()">
-                <label for="scales">маңайлат</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck25" onclick="myFunction25()">
-                <label for="scales">бір рез</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck26" onclick="myFunction26()">
-                <label for="scales">босаға</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck27" onclick="myFunction27()">
-                <label for="scales">қайтара</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck28" onclick="myFunction28()">
-                <label for="scales">туылған күн</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck29" onclick="myFunction29()">
-                <label for="scales">параллельді</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck30" onclick="myFunction30()">
-                <label for="scales">қолайластыр</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck31" onclick="myFunction31()">
-                <label for="scales">әлдеқашан</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck32" onclick="myFunction32()">
-                <label for="scales">терімшілік</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck33" onclick="myFunction33()">
-                <label for="scales">мінез-қылық</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck34" onclick="myFunction34()">
-                <label for="scales">тоқыл</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck35" onclick="myFunction35()">
-                <label for="scales">киеу</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck36" onclick="myFunction36()">
-                <label for="scales">айландыру</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck37" onclick="myFunction37()">
-                <label for="scales">саясатшы</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck38" onclick="myFunction38()">
-                <label for="scales">сылтаурат</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck39" onclick="myFunction39()">
-                <label for="scales">сарақ</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck40" onclick="myFunction40()">
-                <label for="scales">ойқазық</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck41" onclick="myFunction41()">
-                <label for="scales">қисық</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck42" onclick="myFunction42()">
-                <label for="scales">ұжымдас</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck43" onclick="myFunction43()">
-                <label for="scales">бұрат</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck44" onclick="myFunction44()">
-                <label for="scales">аялдат</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck45" onclick="myFunction45()">
-                <label for="scales">бетбеу</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck46" onclick="myFunction46()">
-                <label for="scales">гүлден</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck47" onclick="myFunction47()">
-                <label for="scales">мышық</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck48" onclick="myFunction48()">
-                <label for="scales">қашығырақ</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck49" onclick="myFunction49()">
-                <label for="scales">елпеңде</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck50" onclick="myFunction50()">
-                <label for="scales">сүздір</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck51" onclick="myFunction51()">
-                <label for="scales">беймәлім</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck52" onclick="myFunction52()">
-                <label for="scales">тұрғысыз</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck53" onclick="myFunction53()">
-                <label for="scales">пысына</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck54" onclick="myFunction54()">
-                <label for="scales">мытқыл</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck55" onclick="myFunction55()">
-                <label for="scales">тұтқы</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck56" onclick="myFunction56()">
-                <label for="scales">көпұлтты</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck57" onclick="myFunction57()">
-                <label for="scales">іркіліс</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck58" onclick="myFunction58()">
-                <label for="scales">ұятты</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck59" onclick="myFunction59()">
-                <label for="scales">комбайншы</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck60" onclick="myFunction60()">
-                <label for="scales">ісхана</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck61" onclick="myFunction61()">
-                <label for="scales">ықшам</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck62" onclick="myFunction62()">
-                <label for="scales">қарама-қайшылық</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck63" onclick="myFunction63()">
-                <label for="scales">баудай</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck64" onclick="myFunction64()">
-                <label for="scales">микротолқын</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck65" onclick="myFunction65()">
-                <label for="scales">ырғыздық</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck66" onclick="myFunction66()">
-                <label for="scales">жұмсарт</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck67" onclick="myFunction67()">
-                <label for="scales">қарусыз</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck68" onclick="myFunction68()">
-                <label for="scales">қайыстыр</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck69" onclick="myFunction69()">
-                <label for="scales">майжалдақ</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck70" onclick="myFunction70()">
-                <label for="scales">автошанақ</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck71" onclick="myFunction71()">
-                <label for="scales">құтқарушы</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck72" onclick="myFunction72()">
-                <label for="scales">дастарқандас</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck73" onclick="myFunction73()">
-                <label for="scales">пәлеқор</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck74" onclick="myFunction74()">
-                <label for="scales">талғамсыз</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck75" onclick="myFunction75()">
-                <label for="scales">аңыста</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck76" onclick="myFunction76()">
-                <label for="scales">күлкінішті</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck77" onclick="myFunction77()">
-                <label for="scales">сылдырла</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck78" onclick="myFunction78()">
-                <label for="scales">көгеніс</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck79" onclick="myFunction79()">
-                <label for="scales">тоңғақ</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck80" onclick="myFunction80()">
-                <label for="scales">тиым</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck81" onclick="myFunction81()">
-                <label for="scales">теңдессіз</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck82" onclick="myFunction82()">
-                <label for="scales">балдар</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck83" onclick="myFunction83()">
-                <label for="scales">асқындыр</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck84" onclick="myFunction84()">
-                <label for="scales">шоқырақта</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck85" onclick="myFunction85()">
-                <label for="scales">шұбалшын</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck86" onclick="myFunction86()">
-                <label for="scales">толшыр</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck87" onclick="myFunction87()">
-                <label for="scales">алыпсатар</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck88" onclick="myFunction88()">
-                <label for="scales">имансыздық</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck89" onclick="myFunction89()">
-                <label for="scales">жанулас</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck90" onclick="myFunction90()">
-                <label for="scales">биікше</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck91" onclick="myFunction91()">
-                <label for="scales">жолықтыр</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck92" onclick="myFunction92()">
-                <label for="scales">сүгірет</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck93" onclick="myFunction93()">
-                <label for="scales">көпбағытты</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck94" onclick="myFunction94()">
-                <label for="scales">бағалау</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck95" onclick="myFunction95()">
-                <label for="scales">деңгел</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck96" onclick="myFunction96()">
-                <label for="scales">жазым</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck97" onclick="myFunction97()">
-                <label for="scales">күйзелт</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="wrong" id="myCheck98" onclick="myFunction98()">
-                <label for="scales">аспазшы</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck99" onclick="myFunction99()">
-                <label for="scales">бейжайлық</label>
-              </div>
-            </td>
-            <td>
-              <div>
-                <input type="checkbox" name="scales" id="myCheck100" onclick="myFunction100()">
-                <label for="scales">зағип</label>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <input type="button" class="b" value="Результат" id="submit" onclick="myFunction102()">
+        <script>var modal = document.getElementById("testGoalDiv");
 
 
-      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            var btn = document.getElementById("testGoal");
+
+
+            var span = document.getElementsByClassName("close")[0];
+
+
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+
+            var modal1 = document.getElementById("aboutGoalDiv");
+
+
+            var btn1 = document.getElementById("aboutGoal");
+
+
+            var span1 = document.getElementsByClassName("close1")[0];
+
+
+            btn1.onclick = function () {
+                modal1.style.display = "block";
+            }
+
+
+
+            span1.onclick = function () {
+                modal1.style.display = "none";
+            }
+
+
+            window.onclick = function (event) {
+                if (event.target == modal1) {
+                    modal1.style.display = "none";
+                }
+            }</script>
     </div>
-  </main>
+    <div class="main">
+        <div class="data">
+            <p style="width:65%">Төмендегі кестеде берілген сөздерге қараңыз. Бұл сөздердің кейбіреуі қазақ тіліндегі
+                шынайы
+                сөздер, ал
+                кейбіреуі шынайы
+                сөздерге ұқсайтындай етіп ойдан шығарылған.
+                Өзіңіз білетін немесе күнделікті өмірде қолданыла алатын сөздерді қанатша белгісімен белгілеңіз.</p>
+        </div>
+        <div class="content">
+            <div class="tbl">
+                <table class="styled-table">
+                    <!-- <thead>
+                            <tr>
 
-  <div id="myModal2" class="modal">
+                            </tr>
+                        </thead> -->
 
-    <div class="modal-content">
-      <span class="close2">&times;</span>
-      <div class="result-wrapper">
-        <h3>Result:</h3>
-        <div id="result"></div>
-      </div>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck1" type="checkbox"
+                                        onclick="verifyCorrect1()" />
+                                    <label class="cbx" for="wordCheck1"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Жыл</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck2" type="checkbox"
+                                        onclick="verifyCorrect2()" />
+                                    <label class="cbx" for="wordCheck2"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Азғантай</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck3" type="checkbox"
+                                        onclick="verifyCorrect3()" />
+                                    <label class="cbx" for="wordCheck3"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Тұтандыр</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck4" type="checkbox"
+                                        onclick="verifyCorrect4()" />
+                                    <label class="cbx" for="wordCheck4"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Шам-шырақ</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck5" type="checkbox"
+                                        onclick="verifyCorrect5()" />
+                                    <label class="cbx" for="wordCheck5"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Өмешіл</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck6" type="checkbox"
+                                        onclick="verifyCorrect6()" />
+                                    <label class="cbx" for="wordCheck6"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Пайдалан</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck7" type="checkbox"
+                                        onclick="verifyCorrect7()" />
+                                    <label class="cbx" for="wordCheck7"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Менмен</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck8" type="checkbox"
+                                        onclick="verifyCorrect8()" />
+                                    <label class="cbx" for="wordCheck8"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Бесаспап</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck9" type="checkbox"
+                                        onclick="verifyCorrect9()" />
+                                    <label class="cbx" for="wordCheck9"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Алшайт</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck10" type="checkbox"
+                                        onclick="verifyCorrect10()" />
+                                    <label class="cbx" for="wordCheck10"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Диқаншылдық</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck11" type="checkbox"
+                                        onclick="verifyCorrect11()" />
+                                    <label class="cbx" for="wordCheck11"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қолбақ</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck12" type="checkbox"
+                                        onclick="verifyCorrect12()" />
+                                    <label class="cbx" for="wordCheck12"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Бұратана</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck13" type="checkbox"
+                                        onclick="verifyCorrect13()" />
+                                    <label class="cbx" for="wordCheck13"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Үйткені</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck14" type="checkbox"
+                                        onclick="verifyCorrect14()" />
+                                    <label class="cbx" for="wordCheck14"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Ғұмырнамалық</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck15" type="checkbox"
+                                        onclick="verifyCorrect15()" />
+                                    <label class="cbx" for="wordCheck15"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Жылтырлы</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck16" type="checkbox"
+                                        onclick="verifyCorrect16()" />
+                                    <label class="cbx" for="wordCheck16"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Керісінше</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck17" type="checkbox"
+                                        onclick="verifyCorrect17()" />
+                                    <label class="cbx" for="wordCheck17"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Шабуылшы</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck18" type="checkbox"
+                                        onclick="verifyCorrect18()" />
+                                    <label class="cbx" for="wordCheck18"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Кіржуғыш</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck19" type="checkbox"
+                                        onclick="verifyCorrect19()" />
+                                    <label class="cbx" for="wordCheck19"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Кеуір</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck20" type="checkbox"
+                                        onclick="verifyCorrect20()" />
+                                    <label class="cbx" for="wordCheck20"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Икемсіздік</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck21" type="checkbox"
+                                        onclick="verifyCorrect21()" />
+                                    <label class="cbx" for="wordCheck21"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Сүйіспеншілік</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck22" type="checkbox"
+                                        onclick="verifyCorrect22()" />
+                                    <label class="cbx" for="wordCheck22"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Жатақхана</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck23" type="checkbox"
+                                        onclick="verifyCorrect23()" />
+                                    <label class="cbx" for="wordCheck23"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Сүртін</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck24" type="checkbox"
+                                        onclick="verifyCorrect24()" />
+                                    <label class="cbx" for="wordCheck24"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Маңайлат</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck25" type="checkbox"
+                                        onclick="verifyCorrect25()" />
+                                    <label class="cbx" for="wordCheck25"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Бір рез</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck26" type="checkbox"
+                                        onclick="verifyCorrect26()" />
+                                    <label class="cbx" for="wordCheck26"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Босаға</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck27" type="checkbox"
+                                        onclick="verifyCorrect27()" />
+                                    <label class="cbx" for="wordCheck27"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қайтара</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck28" type="checkbox"
+                                        onclick="verifyCorrect28()" />
+                                    <label class="cbx" for="wordCheck28"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Туылған күн</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck29" type="checkbox"
+                                        onclick="verifyCorrect29()" />
+                                    <label class="cbx" for="wordCheck29"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Параллельді</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck30" type="checkbox"
+                                        onclick="verifyCorrect30()" />
+                                    <label class="cbx" for="wordCheck30"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қолайластыр</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck31" type="checkbox"
+                                        onclick="verifyCorrect31()" />
+                                    <label class="cbx" for="wordCheck31"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Әлдеқашан</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck32" type="checkbox"
+                                        onclick="verifyCorrect32()" />
+                                    <label class="cbx" for="wordCheck32"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Терімшілік</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck33" type="checkbox"
+                                        onclick="verifyCorrect33()" />
+                                    <label class="cbx" for="wordCheck33"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Мінез-қылық</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck34" type="checkbox"
+                                        onclick="verifyCorrect34()" />
+                                    <label class="cbx" for="wordCheck34"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Тоқыл</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck35" type="checkbox"
+                                        onclick="verifyCorrect35()" />
+                                    <label class="cbx" for="wordCheck35"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Киеу</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck36" type="checkbox"
+                                        onclick="verifyCorrect36()" />
+                                    <label class="cbx" for="wordCheck36"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Айландыру</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck37" type="checkbox"
+                                        onclick="verifyCorrect37()" />
+                                    <label class="cbx" for="wordCheck37"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Саясатшы</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck38" type="checkbox"
+                                        onclick="verifyCorrect38()" />
+                                    <label class="cbx" for="wordCheck38"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Сылтаурат</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck39" type="checkbox"
+                                        onclick="verifyCorrect39()" />
+                                    <label class="cbx" for="wordCheck39"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Сарақ</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck40" type="checkbox"
+                                        onclick="verifyCorrect40()" />
+                                    <label class="cbx" for="wordCheck40"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Ойқазық</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck41" type="checkbox"
+                                        onclick="verifyCorrect41()" />
+                                    <label class="cbx" for="wordCheck41"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қисық</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck42" type="checkbox"
+                                        onclick="verifyCorrect42()" />
+                                    <label class="cbx" for="wordCheck42"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Ұжымдас</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck43" type="checkbox"
+                                        onclick="verifyCorrect43()" />
+                                    <label class="cbx" for="wordCheck43"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Бұрат</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck44" type="checkbox"
+                                        onclick="verifyCorrect44()" />
+                                    <label class="cbx" for="wordCheck44"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Аялдат</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck45" type="checkbox"
+                                        onclick="verifyCorrect45()" />
+                                    <label class="cbx" for="wordCheck45"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Бетбеу</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck46" type="checkbox"
+                                        onclick="verifyCorrect46()" />
+                                    <label class="cbx" for="wordCheck46"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Гүлден</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck47" type="checkbox"
+                                        onclick="verifyCorrect47()" />
+                                    <label class="cbx" for="wordCheck47"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Мышық</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck48" type="checkbox"
+                                        onclick="verifyCorrect48()" />
+                                    <label class="cbx" for="wordCheck48"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қашығырақ</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck49" type="checkbox"
+                                        onclick="verifyCorrect49()" />
+                                    <label class="cbx" for="wordCheck49"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Елпеңде</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck50" type="checkbox"
+                                        onclick="verifyCorrect50()" />
+                                    <label class="cbx" for="wordCheck50"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Сүздір</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck51" type="checkbox"
+                                        onclick="verifyCorrect51()" />
+                                    <label class="cbx" for="wordCheck51"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Беймәлім</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck52" type="checkbox"
+                                        onclick="verifyCorrect52()" />
+                                    <label class="cbx" for="wordCheck52"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Тұрғысыз</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck53" type="checkbox"
+                                        onclick="verifyCorrect53()" />
+                                    <label class="cbx" for="wordCheck53"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Пысына</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck54" type="checkbox"
+                                        onclick="verifyCorrect54()" />
+                                    <label class="cbx" for="wordCheck54"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Мытқыл</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck55" type="checkbox"
+                                        onclick="verifyCorrect55()" />
+                                    <label class="cbx" for="wordCheck55"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Тұтқы</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck56" type="checkbox"
+                                        onclick="verifyCorrect56()" />
+                                    <label class="cbx" for="wordCheck56"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Көпұлтты</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck57" type="checkbox"
+                                        onclick="verifyCorrect57()" />
+                                    <label class="cbx" for="wordCheck57"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Іркіліс</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck58" type="checkbox"
+                                        onclick="verifyCorrect58()" />
+                                    <label class="cbx" for="wordCheck58"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Ұятты</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck59" type="checkbox"
+                                        onclick="verifyCorrect59()" />
+                                    <label class="cbx" for="wordCheck59"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Комбайншы</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck60" type="checkbox"
+                                        onclick="verifyCorrect60()" />
+                                    <label class="cbx" for="wordCheck60"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Ісхана</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck61" type="checkbox"
+                                        onclick="verifyCorrect61()" />
+                                    <label class="cbx" for="wordCheck61"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Ықшам</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck62" type="checkbox"
+                                        onclick="verifyCorrect62()" />
+                                    <label class="cbx" for="wordCheck62"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қарама-қайшылық</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck63" type="checkbox"
+                                        onclick="verifyCorrect63()" />
+                                    <label class="cbx" for="wordCheck63"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Баудай</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck64" type="checkbox"
+                                        onclick="verifyCorrect64()" />
+                                    <label class="cbx" for="wordCheck64"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Микротолқын</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck65" type="checkbox"
+                                        onclick="verifyCorrect65()" />
+                                    <label class="cbx" for="wordCheck65"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Ырғыздық</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck66" type="checkbox"
+                                        onclick="verifyCorrect66()" />
+                                    <label class="cbx" for="wordCheck66"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Жұмсарт</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck67" type="checkbox"
+                                        onclick="verifyCorrect67()" />
+                                    <label class="cbx" for="wordCheck67"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қарусыз</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck68" type="checkbox"
+                                        onclick="verifyCorrect68()" />
+                                    <label class="cbx" for="wordCheck68"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Қайыстыр</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck69" type="checkbox"
+                                        onclick="verifyCorrect69()" />
+                                    <label class="cbx" for="wordCheck69"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Майжалдақ</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck70" type="checkbox"
+                                        onclick="verifyCorrect70()" />
+                                    <label class="cbx" for="wordCheck70"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Автошанақ</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck71" type="checkbox"
+                                        onclick="verifyCorrect71()" />
+                                    <label class="cbx" for="wordCheck71"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Құтқарушы</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck72" type="checkbox"
+                                        onclick="verifyCorrect72()" />
+                                    <label class="cbx" for="wordCheck72"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Дастарқандас</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck73" type="checkbox"
+                                        onclick="verifyCorrect73()" />
+                                    <label class="cbx" for="wordCheck73"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Пәлеқор</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck74" type="checkbox"
+                                        onclick="verifyCorrect74()" />
+                                    <label class="cbx" for="wordCheck74"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Талғамсыз</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck75" type="checkbox"
+                                        onclick="verifyCorrect75()" />
+                                    <label class="cbx" for="wordCheck75"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Аңыста</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck76" type="checkbox"
+                                        onclick="verifyCorrect76()" />
+                                    <label class="cbx" for="wordCheck76"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Күлкінішті</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck77" type="checkbox"
+                                        onclick="verifyCorrect77()" />
+                                    <label class="cbx" for="wordCheck77"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Сылдырла</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck78" type="checkbox"
+                                        onclick="verifyCorrect78()" />
+                                    <label class="cbx" for="wordCheck78"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Көгеніс</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck79" type="checkbox"
+                                        onclick="verifyCorrect79()" />
+                                    <label class="cbx" for="wordCheck79"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Тоңғақ</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck80" type="checkbox"
+                                        onclick="verifyCorrect80()" />
+                                    <label class="cbx" for="wordCheck80"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Тиым</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck81" type="checkbox"
+                                        onclick="verifyCorrect81()" />
+                                    <label class="cbx" for="wordCheck81"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Теңдессіз</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck82" type="checkbox"
+                                        onclick="verifyCorrect82()" />
+                                    <label class="cbx" for="wordCheck82"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Балдар</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck83" type="checkbox"
+                                        onclick="verifyCorrect83()" />
+                                    <label class="cbx" for="wordCheck83"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Асқындыр</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck84" type="checkbox"
+                                        onclick="verifyCorrect84()" />
+                                    <label class="cbx" for="wordCheck84"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Шоқырақта</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck85" type="checkbox"
+                                        onclick="verifyCorrect85()" />
+                                    <label class="cbx" for="wordCheck85"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Шұбалшын</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck86" type="checkbox"
+                                        onclick="verifyCorrect86()" />
+                                    <label class="cbx" for="wordCheck86"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Толшыр</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck87" type="checkbox"
+                                        onclick="verifyCorrect87()" />
+                                    <label class="cbx" for="wordCheck87"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Алыпсатар</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck88" type="checkbox"
+                                        onclick="verifyCorrect88()" />
+                                    <label class="cbx" for="wordCheck88"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Имансыздық</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck89" type="checkbox"
+                                        onclick="verifyCorrect89()" />
+                                    <label class="cbx" for="wordCheck89"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Жанулас</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck90" type="checkbox"
+                                        onclick="verifyCorrect90()" />
+                                    <label class="cbx" for="wordCheck90"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Биікше</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck91" type="checkbox"
+                                        onclick="verifyCorrect91()" />
+                                    <label class="cbx" for="wordCheck91"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Жолықтыр</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck92" type="checkbox"
+                                        onclick="verifyCorrect92()" />
+                                    <label class="cbx" for="wordCheck92"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Сүгірет</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck93" type="checkbox"
+                                        onclick="verifyCorrect93()" />
+                                    <label class="cbx" for="wordCheck93"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Көпбағытты</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck94" type="checkbox"
+                                        onclick="verifyCorrect94()" />
+                                    <label class="cbx" for="wordCheck94"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Бағалау</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck95" type="checkbox"
+                                        onclick="verifyCorrect95()" />
+                                    <label class="cbx" for="wordCheck95"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Деңгел</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck96" type="checkbox"
+                                        onclick="verifyCorrect96()" />
+                                    <label class="cbx" for="wordCheck96"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Жазым</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck97" type="checkbox"
+                                        onclick="verifyCorrect97()" />
+                                    <label class="cbx" for="wordCheck97"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Күйзелт</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="wrong" id="wordCheck98" type="checkbox"
+                                        onclick="verifyCorrect98()" />
+                                    <label class="cbx" for="wordCheck98"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Аспазшы</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck99" type="checkbox"
+                                        onclick="verifyCorrect99()" />
+                                    <label class="cbx" for="wordCheck99"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Бейжайлық</span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cbx-wrapper">
+                                    <input class="inp-cbx" name="correct" id="wordCheck100" type="checkbox"
+                                        onclick="verifyCorrect100()" />
+                                    <label class="cbx" for="wordCheck100"><span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg></span><span>Зағип</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="btn">
+                <button class="button" role="button" onClick="calculateResult()"">Қабылдау</button>
+                </div>
+            </div>
     </div>
-
-  </div>
-
-
-  <footer>
-    Контакты
-    - <a id="add-content" href="" role="button">WhatsApp</a>
-    - <a id="remove-content" href="" role="button">Номер</a>
-  </footer>
-
-
-
-
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-  <script>
-    window.right = 0
-    window.wrong = 0
-    window.result = 0
-
-
-    function myFunction86() {
-      var checkBox = document.getElementById("myCheck86");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction92() {
-      var checkBox = document.getElementById("myCheck92");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction1() {
-      var checkBox = document.getElementById("myCheck1");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction2() {
-      var checkBox = document.getElementById("myCheck2");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction3() {
-      var checkBox = document.getElementById("myCheck3");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction4() {
-      var checkBox = document.getElementById("myCheck4");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction5() {
-      var checkBox = document.getElementById("myCheck5");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction6() {
-      var checkBox = document.getElementById("myCheck6");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction7() {
-      var checkBox = document.getElementById("myCheck7");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction8() {
-      var checkBox = document.getElementById("myCheck8");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction9() {
-      var checkBox = document.getElementById("myCheck9");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction10() {
-      var checkBox = document.getElementById("myCheck10");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction11() {
-      var checkBox = document.getElementById("myCheck11");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction12() {
-      var checkBox = document.getElementById("myCheck12");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction13() {
-      var checkBox = document.getElementById("myCheck13");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction14() {
-      var checkBox = document.getElementById("myCheck14");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction15() {
-      var checkBox = document.getElementById("myCheck15");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction16() {
-      var checkBox = document.getElementById("myCheck16");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction17() {
-      var checkBox = document.getElementById("myCheck17");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction18() {
-      var checkBox = document.getElementById("myCheck18");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction19() {
-      var checkBox = document.getElementById("myCheck19");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction20() {
-      var checkBox = document.getElementById("myCheck20");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction21() {
-      var checkBox = document.getElementById("myCheck21");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction22() {
-      var checkBox = document.getElementById("myCheck22");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction23() {
-      var checkBox = document.getElementById("myCheck23");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction24() {
-      var checkBox = document.getElementById("myCheck24");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction25() {
-      var checkBox = document.getElementById("myCheck25");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction26() {
-      var checkBox = document.getElementById("myCheck26");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction27() {
-      var checkBox = document.getElementById("myCheck27");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction28() {
-      var checkBox = document.getElementById("myCheck28");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction29() {
-      var checkBox = document.getElementById("myCheck29");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction30() {
-      var checkBox = document.getElementById("myCheck30");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction31() {
-      var checkBox = document.getElementById("myCheck31");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction32() {
-      var checkBox = document.getElementById("myCheck32");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction33() {
-      var checkBox = document.getElementById("myCheck33");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction34() {
-      var checkBox = document.getElementById("myCheck34");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction35() {
-      var checkBox = document.getElementById("myCheck35");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction36() {
-      var checkBox = document.getElementById("myCheck36");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction37() {
-      var checkBox = document.getElementById("myCheck37");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction38() {
-      var checkBox = document.getElementById("myCheck38");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction39() {
-      var checkBox = document.getElementById("myCheck39");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction40() {
-      var checkBox = document.getElementById("myCheck40");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction41() {
-      var checkBox = document.getElementById("myCheck41");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction42() {
-      var checkBox = document.getElementById("myCheck42");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction43() {
-      var checkBox = document.getElementById("myCheck43");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction44() {
-      var checkBox = document.getElementById("myCheck44");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction45() {
-      var checkBox = document.getElementById("myCheck45");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction46() {
-      var checkBox = document.getElementById("myCheck46");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction47() {
-      var checkBox = document.getElementById("myCheck47");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction48() {
-      var checkBox = document.getElementById("myCheck48");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction49() {
-      var checkBox = document.getElementById("myCheck49");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction50() {
-      var checkBox = document.getElementById("myCheck50");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction51() {
-      var checkBox = document.getElementById("myCheck51");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction52() {
-      var checkBox = document.getElementById("myCheck52");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction53() {
-      var checkBox = document.getElementById("myCheck53");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-
-    function myFunction54() {
-      var checkBox = document.getElementById("myCheck54");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction55() {
-      var checkBox = document.getElementById("myCheck55");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction56() {
-      var checkBox = document.getElementById("myCheck56");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction57() {
-      var checkBox = document.getElementById("myCheck57");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction58() {
-      var checkBox = document.getElementById("myCheck58");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction59() {
-      var checkBox = document.getElementById("myCheck59");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction60() {
-      var checkBox = document.getElementById("myCheck60");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction61() {
-      var checkBox = document.getElementById("myCheck61");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction62() {
-      var checkBox = document.getElementById("myCheck62");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction63() {
-      var checkBox = document.getElementById("myCheck63");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction64() {
-      var checkBox = document.getElementById("myCheck64");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction65() {
-      var checkBox = document.getElementById("myCheck65");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction66() {
-      var checkBox = document.getElementById("myCheck66");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction67() {
-      var checkBox = document.getElementById("myCheck67");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction68() {
-      var checkBox = document.getElementById("myCheck68");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-
-    function myFunction69() {
-      var checkBox = document.getElementById("myCheck69");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction70() {
-      var checkBox = document.getElementById("myCheck70");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction71() {
-      var checkBox = document.getElementById("myCheck71");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction72() {
-      var checkBox = document.getElementById("myCheck72");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction73() {
-      var checkBox = document.getElementById("myCheck73");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction74() {
-      var checkBox = document.getElementById("myCheck74");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction75() {
-      var checkBox = document.getElementById("myCheck75");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction76() {
-      var checkBox = document.getElementById("myCheck76");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction77() {
-      var checkBox = document.getElementById("myCheck77");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-
-    function myFunction78() {
-      var checkBox = document.getElementById("myCheck78");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction79() {
-      var checkBox = document.getElementById("myCheck79");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction80() {
-      var checkBox = document.getElementById("myCheck80");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction81() {
-      var checkBox = document.getElementById("myCheck81");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction82() {
-      var checkBox = document.getElementById("myCheck82");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction83() {
-      var checkBox = document.getElementById("myCheck83");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction84() {
-      var checkBox = document.getElementById("myCheck84");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction85() {
-      var checkBox = document.getElementById("myCheck85");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-
-    function myFunction87() {
-      var checkBox = document.getElementById("myCheck87");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction88() {
-      var checkBox = document.getElementById("myCheck88");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction89() {
-      var checkBox = document.getElementById("myCheck89");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction90() {
-      var checkBox = document.getElementById("myCheck1");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction91() {
-      var checkBox = document.getElementById("myCheck1");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction93() {
-      var checkBox = document.getElementById("myCheck93");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction94() {
-      var checkBox = document.getElementById("myCheck94");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction95() {
-      var checkBox = document.getElementById("myCheck95");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction96() {
-      var checkBox = document.getElementById("myCheck96");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction97() {
-      var checkBox = document.getElementById("myCheck97");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-
-    function myFunction98() {
-      var checkBox = document.getElementById("myCheck98");
-
-      if (checkBox.checked == true) {
-        window.wrong = window.wrong + 1;
-      }
-    }
-    function myFunction99() {
-      var checkBox = document.getElementById("myCheck99");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-    function myFunction100() {
-      var checkBox = document.getElementById("myCheck100");
-
-      if (checkBox.checked == true) {
-        window.right = window.right + 1;
-      }
-    }
-
-
-    function myFunction102() {
-      window.result = (window.right) * 375 - (window.wrong) * 1500
-      alert("Сіздің нәтижеңіз:" + window.result)
-
-
-    }
-
-
-
-
-
-    var modal = document.getElementById("myModal");
-
-
-    var btn = document.getElementById("myBtn");
-
-
-    var span = document.getElementsByClassName("close")[0];
-
-
-    btn.onclick = function () {
-      modal.style.display = "block";
-    }
-
-
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-
-
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-
-
-    var modal1 = document.getElementById("myModal1");
-
-
-    var btn1 = document.getElementById("myBtn1");
-
-
-    var span1 = document.getElementsByClassName("close1")[0];
-
-
-    btn1.onclick = function () {
-      modal1.style.display = "block";
-    }
-
-
-
-    span1.onclick = function () {
-      modal1.style.display = "none";
-    }
-
-
-    window.onclick = function (event) {
-      if (event.target == modal1) {
-        modal1.style.display = "none";
-      }
-    }
-    //    var modal2 = document.getElementById("myModal2");
-    //
-    //
-    //    var btn2 = document.getElementById("submit");
-    //
-    //
-    //    var span2 = document.getElementsByClassName("close2")[0];
-    //
-    //
-    //    btn2.onclick = function() {
-    //      modal2.style.display = "block";
-    //    }
-    //
-    //
-    //    span2.onclick = function() {
-    //      modal2.style.display = "none";
-    //    }
-    //
-    //
-    //    window.onclick = function(event) {
-    //      if (event.target == modal2) {
-    //        modal2.style.display = "none";
-    //      }
-    //    }
-
-  </script>
-
-
 </body>
 
 </html>
